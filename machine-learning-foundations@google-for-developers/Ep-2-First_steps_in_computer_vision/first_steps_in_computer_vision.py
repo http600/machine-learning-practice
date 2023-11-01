@@ -14,7 +14,7 @@ class Inject(keras.callbacks.Callback):
 def run():
     fasion_mnist = keras.datasets.fashion_mnist
     (X, Y), (x_check, y_check) = fasion_mnist.load_data()
-    # X, Y = X / 255.0, Y / 255.0
+    X, x_check = X / 255.0, x_check / 255.0
     model = keras.Sequential([keras.layers.Flatten(input_shape=(28, 28)),
                               keras.layers.Dense(128, activation=tf.nn.relu),
                               keras.layers.Dense(10, activation=tf.nn.softmax)])
